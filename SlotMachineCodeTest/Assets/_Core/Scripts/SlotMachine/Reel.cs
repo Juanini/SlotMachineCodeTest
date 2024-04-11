@@ -41,6 +41,11 @@ public class Reel : MonoBehaviour
     {
         stopActivated = false;
         
+        foreach (var reelPiece in reelPieces)
+        {
+            reelPiece.StopAnimation();
+        }
+        
         reelPieces[0].Init(0, this, GetResetedReelIndex(reelPieceIndex, 2));
         reelPieces[1].Init(1, this, GetResetedReelIndex(reelPieceIndex, 1)); 
         reelPieces[2].Init(2, this, reelPieceIndex); // Center
@@ -126,5 +131,16 @@ public class Reel : MonoBehaviour
         reelPieces[2].Init(2, this, IncreaseAndGetReelPieceIndex());
         reelPieces[1].Init(1, this, IncreaseAndGetReelPieceIndex());
         reelPieces[0].Init(0, this, IncreaseAndGetReelPieceIndex());
+    }
+
+    public void Animate()
+    {
+        foreach (var reelPiece in reelPieces)
+        {
+            if (reelPiece.setAsStopPiece)
+            {
+                reelPiece.Animate();
+            }
+        }
     }
 }

@@ -74,6 +74,11 @@ public class SlotMachine : MonoBehaviour
             await UniTask.Delay(500);
             firstSpinDone = true;
             OnSpinCompleted.Raise(activeSpinData.WinAmount);
+
+            for (int i = 0; i < activeSpinData.ActiveReelCount; i++)
+            {
+                reels[i].Animate();
+            }
         }
         else
         {

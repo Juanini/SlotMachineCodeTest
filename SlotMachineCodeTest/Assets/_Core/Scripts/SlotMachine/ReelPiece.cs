@@ -41,7 +41,7 @@ public class ReelPiece : MonoBehaviour
             
             SetPieceType(reelParent.GetNextReelPiece());
 
-            reelStripIndex = reelParent.ReelPieceIndex;
+            reelStripIndex = reelParent.ReelPieceIndex - 1;
             setAsStopPiece = reelStripIndex == reelParent.ReelStopIndex; 
         }
         
@@ -73,15 +73,24 @@ public class ReelPiece : MonoBehaviour
         SetPieceType( reelParent.reelPieceTypeRegistry.GetSymbolTypeByName(reelParent.ReelStrip[_reelStripIndex]));
         transform.position = reelParent.reelSlots[currentIndex].transform.position;
     }
-    
-    // public void Reinit(int _currentIndex)
-    // {
-    //     currentIndex = _currentIndex;
-    //     
-    //     SetPieceType( reelParent.reelPieceTypeRegistry.GetSymbolTypeByName(reelParent.ReelStrip[_reelStripIndex]));
-    //     transform.position = reelParent.reelSlots[currentIndex].transform.position;
-    // }
 
+    private Tween animTween;
+    public void Animate()
+    {
+        float punch = 0.1f;
+        animTween = sprite.transform.DOPunchScale(new Vector3(punch, punch, punch), 1.5f)
+            .SetLoops(-1, LoopType.Restart)
+            .SetEase(Ease.Linear);
+    }
+
+    public void StopAnimation()
+    {
+        if (animTween.IsActive())
+        {
+            animTween.Kill();
+        }
+    }
+    
     private bool stopActivated;
     
     public void Stop()
