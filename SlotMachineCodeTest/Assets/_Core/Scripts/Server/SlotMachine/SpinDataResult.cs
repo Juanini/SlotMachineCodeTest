@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class SpinResult
+public class SpinDataResult
 {
     public List<int> ReelIndex;
     public int ActiveReelCount;
@@ -12,5 +12,5 @@ public class SpinResult
 [System.Serializable]
 public class SpinData
 {
-    public List<SpinResult> Spins;
+    public List<SpinDataResult> Spins;
 }

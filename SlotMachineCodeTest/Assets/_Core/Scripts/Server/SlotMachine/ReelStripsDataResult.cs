@@ -1,8 +1,20 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class ReelStripsResult : MonoBehaviour
+[Serializable]
+public class ReelStripsDataResult
 {
-    
+    public string[][] ReelStrips;
+}
+
+[Serializable]
+public class ReelStrip
+{
+    public string[] symbols;
+}
+
+[Serializable]
+public class ReelStripsContainer
+{
+    public ReelStrip[] ReelStrips;
 }
