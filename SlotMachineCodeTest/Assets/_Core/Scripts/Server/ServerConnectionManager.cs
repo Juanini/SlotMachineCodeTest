@@ -7,11 +7,12 @@ using UnityEngine;
 public class ServerConnectionManager : Singleton<ServerConnectionManager>
 {
     public ServerEndpoints serverEndpoints;
+    public ServerDataLoader serverDataLoader;
     
     public ScriptableEventNoParam OnLoginSuccess;
     public ScriptableEventNoParam OnLoginError;
     
-    public async void Init()
+    public async UniTask Init()
     {
         await Login();
     }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ac1a1f732a4f17adf5eb814d6bf84f, type: 3}
+  m_Name: ReelPieceTypeRegistry
+  m_EditorClassIdentifier: 
+  allSymbolTypes:
+  - {fileID: 11400000, guid: 3d4801e18219c4052b0f33534608b9a0, type: 2}
+  - {fileID: 11400000, guid: 4b7c5082aa64f432fab6618586c964c3, type: 2}
+  - {fileID: 11400000, guid: bdb04bd511f8648a8925f8b4c2ae06b8, type: 2}
+  - {fileID: 11400000, guid: 915d5a48a38384532af4bc2f634fbbd7, type: 2}
