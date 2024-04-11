@@ -37,37 +37,7 @@ public class Reel : MonoBehaviour
         Init();
     }
 
-    public void ResetReel()
-    {
-        stopActivated = false;
-        
-        foreach (var reelPiece in reelPieces)
-        {
-            reelPiece.StopAnimation();
-        }
-        
-        reelPieces[0].Init(0, this, GetResetedReelIndex(reelPieceIndex, 2));
-        reelPieces[1].Init(1, this, GetResetedReelIndex(reelPieceIndex, 1)); 
-        reelPieces[2].Init(2, this, reelPieceIndex); // Center
-        reelPieces[3].Init(3, this, GetResetedReelIndex(reelPieceIndex, -1));
-    }
-
-    private int GetResetedReelIndex(int _index, int _v)
-    {
-        var result = _index + _v; 
-        
-        if (result >= reelStrip.Count)
-        {
-            return 0;
-        }
-        
-        if(result < 0)
-        {
-            return reelStrip.Count -1;
-        }
-
-        return result;
-    }
+    
 
     public void Spin(int _reelStopIndex)
     {
@@ -132,6 +102,41 @@ public class Reel : MonoBehaviour
         reelPieces[1].Init(1, this, IncreaseAndGetReelPieceIndex());
         reelPieces[0].Init(0, this, IncreaseAndGetReelPieceIndex());
     }
+    
+    public void ResetReel()
+    {
+        stopActivated = false;
+        
+        foreach (var reelPiece in reelPieces)
+        {
+            reelPiece.StopAnimation();
+        }
+        
+        reelPieces[0].Init(0, this, GetResetedReelIndex(reelPieceIndex, 2));
+        reelPieces[1].Init(1, this, GetResetedReelIndex(reelPieceIndex, 1)); 
+        reelPieces[2].Init(2, this, reelPieceIndex); // Center
+        reelPieces[3].Init(3, this, GetResetedReelIndex(reelPieceIndex, -1));
+    }
+
+    private int GetResetedReelIndex(int _index, int _v)
+    {
+        var result = _index + _v; 
+        
+        if (result >= reelStrip.Count)
+        {
+            return 0;
+        }
+        
+        if(result < 0)
+        {
+            return reelStrip.Count -1;
+        }
+
+        return result;
+    }
+    
+    // * =====================================================================================================================================
+    // * Anim
 
     public void Animate()
     {
